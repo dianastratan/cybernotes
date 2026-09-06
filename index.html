@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cyber Notes — a focused dashboard for cybersecurity study notes."
+    />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Cyber Notes | Study Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to notes</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Notes navigation">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">⌁</span>
+          <div>
+            <p class="eyebrow">STUDY VAULT</p>
+            <h1>Cyber Notes</h1>
+          </div>
+        </div>
+
+        <label class="search" for="topic-search">
+          <span class="sr-only">Search topics</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+          <input id="topic-search" type="search" placeholder="Search notes" autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </label>
+
+        <nav class="topic-nav" aria-label="Study topics">
+          <p class="nav-label">TOPICS <span id="topic-count">03</span></p>
+          <ul id="topic-list">
+            <li>
+              <button class="topic-link active" data-topic="goals" aria-current="page">
+                <span class="topic-number">01</span>
+                <span>Intro &amp; Security Goals</span>
+              </button>
+            </li>
+            <li>
+              <button class="topic-link" data-topic="attacks">
+                <span class="topic-number">02</span>
+                <span>Attacks &amp; Adversaries</span>
+              </button>
+            </li>
+            <li>
+              <button class="topic-link" data-topic="diffie-hellman">
+                <span class="topic-number">03</span>
+                <span>Diffie-Hellman Key Exchange</span>
+              </button>
+            </li>
+          </ul>
+          <p class="no-results" id="no-results" hidden>No matching topics found.</p>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="progress-label"><span>Learning progress</span><strong>3 / 3</strong></div>
+          <div class="progress-track" role="progressbar" aria-label="Learning progress" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+        </div>
+      </aside>
+
+      <main id="main-content" tabindex="-1">
+        <header class="topbar">
+          <button class="menu-toggle" id="menu-toggle" aria-label="Open topic navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+          <p id="crumb">LECTURE 1 / FOUNDATIONS</p>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+            <span aria-hidden="true">☼</span><span class="toggle-text">Light mode</span>
+          </button>
+        </header>
+
+        <article class="note active" id="goals" data-label="LECTURE 1 / FOUNDATIONS">
+          <div class="note-intro">
+            <span class="tag">LECTURE 01</span>
+            <p class="section-label">CORE PRINCIPLES</p>
+            <h2>Intro &amp;<br /><em>Security Goals</em></h2>
+            <p class="lede">Security is not a single feature. It is a balance of protections that lets people and systems work with confidence.</p>
+          </div>
+          <section class="note-section">
+            <div class="section-heading"><span>01</span><h3>The CIA triad</h3></div>
+            <p>The three foundational objectives of information security guide how we design, assess, and protect every system.</p>
+            <div class="concept-grid">
+              <article class="concept-card"><span class="card-index">C</span><h4>Confidentiality</h4><p>Information is accessible only to authorized people and systems.</p><span class="example">Encryption · Access control</span></article>
+              <article class="concept-card"><span class="card-index">I</span><h4>Integrity</h4><p>Information remains accurate, complete, and protected from improper change.</p><span class="example">Hashes · Digital signatures</span></article>
+              <article class="concept-card"><span class="card-index">A</span><h4>Availability</h4><p>Authorized users can access information and services when needed.</p><span class="example">Backups · Redundancy</span></article>
+            </div>
+          </section>
+          <section class="note-section">
+            <div class="section-heading"><span>02</span><h3>Extended security concepts</h3></div>
+            <div class="definition-list">
+              <div><strong>Accountability</strong><p>Actions can be traced to the responsible party.</p></div>
+              <div><strong>Authenticity</strong><p>Users, systems, and data are genuinely what they claim to be.</p></div>
+              <div><strong>Assurance</strong><p>Confidence that controls work as intended and meet their requirements.</p></div>
+              <div><strong>Anonymity</strong><p>A subject can act without revealing or being linked to an identity.</p></div>
+            </div>
+          </section>
+        </article>
+
+        <article class="note" id="attacks" data-label="LECTURE 1 / THREATS" hidden>
+          <div class="note-intro">
+            <span class="tag">LECTURE 01</span>
+            <p class="section-label">THREAT LANDSCAPE</p>
+            <h2>Attacks &amp;<br /><em>Adversaries</em></h2>
+            <p class="lede">Understanding who may act against a system, and how visible their actions are, is central to threat modeling.</p>
+          </div>
+          <section class="note-section">
+            <div class="section-heading"><span>01</span><h3>Network attacks</h3></div>
+            <div class="comparison">
+              <article><p class="comparison-label">PASSIVE</p><h4>Observe without changing</h4><p>An attacker monitors communication to learn from it. Passive attacks are difficult to detect because no data is altered.</p><span>Examples: eavesdropping, traffic analysis</span></article>
+              <article><p class="comparison-label accent">ACTIVE</p><h4>Alter or disrupt</h4><p>An attacker modifies messages, injects data, impersonates a party, or prevents normal service.</p><span>Examples: replay, masquerade, denial of service</span></article>
+            </div>
+          </section>
+          <section class="note-section">
+            <div class="section-heading"><span>02</span><h3>Threat actors</h3></div>
+            <div class="actor-grid">
+              <article><h4>Insiders</h4><p>People with legitimate access who misuse it deliberately or accidentally.</p></article>
+              <article><h4>Crackers / Hackers</h4><p>Technically capable actors who seek to exploit weaknesses for a range of motives.</p></article>
+              <article><h4>Script-Kiddies</h4><p>Inexperienced attackers who rely on tools or scripts made by others.</p></article>
+              <article><h4>Spies &amp; Criminals</h4><p>Organized actors pursuing intelligence, financial gain, or strategic advantage.</p></article>
+            </div>
+          </section>
+        </article>
+
+        <article class="note" id="diffie-hellman" data-label="CRYPTOGRAPHY / KEY EXCHANGE" hidden>
+          <div class="note-intro">
+            <span class="tag">CRYPTOGRAPHY</span>
+            <p class="section-label">ASYMMETRIC FOUNDATIONS</p>
+            <h2>Diffie-Hellman<br /><em>Key Exchange</em></h2>
+            <p class="lede">A shared secret can be established over a public channel—without transmitting the secret itself.</p>
+          </div>
+          <section class="note-section">
+            <div class="section-heading"><span>01</span><h3>Public values, private choices</h3></div>
+            <p>Alice and Bob publicly agree on a large prime <code>p</code> and generator <code>g</code>. These values are not secret. Each then picks a private exponent.</p>
+            <div class="flow" aria-label="Diffie-Hellman exchange flow">
+              <div><strong>Public</strong><code>p, g</code></div><i aria-hidden="true">→</i>
+              <div><strong>Alice keeps</strong><code>a</code></div><i aria-hidden="true">→</i>
+              <div><strong>Alice sends</strong><code>A = g<sup>a</sup> mod p</code></div>
+              <div><strong>Bob keeps</strong><code>b</code></div><i aria-hidden="true">→</i>
+              <div><strong>Bob sends</strong><code>B = g<sup>b</sup> mod p</code></div>
+            </div>
+          </section>
+          <section class="note-section">
+            <div class="section-heading"><span>02</span><h3>Arriving at the same secret</h3></div>
+            <div class="key-result">
+              <div><p>Alice computes</p><code>K = B<sup>a</sup> mod p</code></div>
+              <span aria-hidden="true">=</span>
+              <div><p>Bob computes</p><code>K = A<sup>b</sup> mod p</code></div>
+              <span aria-hidden="true">=</span>
+              <div class="shared"><p>Shared secret</p><code>g<sup>ab</sup> mod p</code></div>
+            </div>
+          </section>
+          <aside class="callout"><span aria-hidden="true">!</span><p><strong>Security note.</strong> Recovering <code>a</code> from <code>A = g<sup>a</sup> mod p</code> should be infeasible because of the discrete-log problem. Basic Diffie-Hellman does not authenticate either party, however, so it is vulnerable to a man-in-the-middle attack unless paired with authentication.</p></aside>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
