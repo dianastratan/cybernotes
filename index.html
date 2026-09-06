@@ -3,162 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Cyber Notes — a focused dashboard for cybersecurity study notes."
-    />
+    <meta name="description" content="Interactive exam-preparation notes for DTU Cybersecurity Fundamentals." />
     <meta name="theme-color" content="#0b1020" />
-    <title>Cyber Notes | Study Dashboard</title>
+    <title>Cyber Notes | Exam Prep</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to notes</a>
-
     <div class="app-shell">
-      <aside class="sidebar" aria-label="Notes navigation">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">⌁</span>
-          <div>
-            <p class="eyebrow">STUDY VAULT</p>
-            <h1>Cyber Notes</h1>
-          </div>
-        </div>
-
-        <label class="search" for="topic-search">
-          <span class="sr-only">Search topics</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
-          <input id="topic-search" type="search" placeholder="Search notes" autocomplete="off" />
-          <kbd>⌘ K</kbd>
-        </label>
-
+      <aside class="sidebar" id="sidebar" aria-label="Notes navigation">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">⌁</span><div><p class="eyebrow">DTU 02270 / 02339</p><h1>Cyber Notes</h1></div></div>
+        <label class="search" for="topic-search"><span class="sr-only">Search topics</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg><input id="topic-search" type="search" placeholder="Search notes" autocomplete="off" /><kbd>⌘ K</kbd></label>
         <nav class="topic-nav" aria-label="Study topics">
-          <p class="nav-label">TOPICS <span id="topic-count">03</span></p>
-          <ul id="topic-list">
-            <li>
-              <button class="topic-link active" data-topic="goals" aria-current="page">
-                <span class="topic-number">01</span>
-                <span>Intro &amp; Security Goals</span>
-              </button>
-            </li>
-            <li>
-              <button class="topic-link" data-topic="attacks">
-                <span class="topic-number">02</span>
-                <span>Attacks &amp; Adversaries</span>
-              </button>
-            </li>
-            <li>
-              <button class="topic-link" data-topic="diffie-hellman">
-                <span class="topic-number">03</span>
-                <span>Diffie-Hellman Key Exchange</span>
-              </button>
-            </li>
+          <p class="nav-label">EXAM TOPICS <span id="topic-count">05</span></p>
+          <ul>
+            <li><button class="topic-link active" data-topic="overview" aria-current="page"><span class="topic-number">01</span><span>Course Overview</span></button></li>
+            <li><button class="topic-link" data-topic="goals"><span class="topic-number">02</span><span>Security Goals</span></button></li>
+            <li><button class="topic-link" data-topic="threats"><span class="topic-number">03</span><span>Threats &amp; Risk</span></button></li>
+            <li><button class="topic-link" data-topic="engineering"><span class="topic-number">04</span><span>Security Engineering</span></button></li>
+            <li><button class="topic-link" data-topic="diffie-hellman"><span class="topic-number">05</span><span>Diffie-Hellman</span></button></li>
           </ul>
           <p class="no-results" id="no-results" hidden>No matching topics found.</p>
         </nav>
-
-        <div class="sidebar-footer">
-          <div class="progress-label"><span>Learning progress</span><strong>3 / 3</strong></div>
-          <div class="progress-track" role="progressbar" aria-label="Learning progress" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span></span></div>
-        </div>
+        <div class="sidebar-footer"><div class="progress-label"><span>Exam-prep set</span><strong>5 TOPICS</strong></div><div class="progress-track" aria-hidden="true"><span></span></div><p>2-hour multiple choice · No aids</p></div>
       </aside>
-
       <main id="main-content" tabindex="-1">
-        <header class="topbar">
-          <button class="menu-toggle" id="menu-toggle" aria-label="Open topic navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
-          <p id="crumb">LECTURE 1 / FOUNDATIONS</p>
-          <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
-            <span aria-hidden="true">☼</span><span class="toggle-text">Light mode</span>
-          </button>
-        </header>
+        <header class="topbar"><button class="menu-toggle" id="menu-toggle" aria-label="Open topic navigation" aria-expanded="false" aria-controls="sidebar">☰</button><p id="crumb">FOUNDATIONS / EXAM OVERVIEW</p><button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme" aria-pressed="false"><span aria-hidden="true">☼</span><span class="toggle-text">Light mode</span></button></header>
 
-        <article class="note active" id="goals" data-label="LECTURE 1 / FOUNDATIONS">
-          <div class="note-intro">
-            <span class="tag">LECTURE 01</span>
-            <p class="section-label">CORE PRINCIPLES</p>
-            <h2>Intro &amp;<br /><em>Security Goals</em></h2>
-            <p class="lede">Security is not a single feature. It is a balance of protections that lets people and systems work with confidence.</p>
-          </div>
-          <section class="note-section">
-            <div class="section-heading"><span>01</span><h3>The CIA triad</h3></div>
-            <p>The three foundational objectives of information security guide how we design, assess, and protect every system.</p>
-            <div class="concept-grid">
-              <article class="concept-card"><span class="card-index">C</span><h4>Confidentiality</h4><p>Information is accessible only to authorized people and systems.</p><span class="example">Encryption · Access control</span></article>
-              <article class="concept-card"><span class="card-index">I</span><h4>Integrity</h4><p>Information remains accurate, complete, and protected from improper change.</p><span class="example">Hashes · Digital signatures</span></article>
-              <article class="concept-card"><span class="card-index">A</span><h4>Availability</h4><p>Authorized users can access information and services when needed.</p><span class="example">Backups · Redundancy</span></article>
-            </div>
-          </section>
-          <section class="note-section">
-            <div class="section-heading"><span>02</span><h3>Extended security concepts</h3></div>
-            <div class="definition-list">
-              <div><strong>Accountability</strong><p>Actions can be traced to the responsible party.</p></div>
-              <div><strong>Authenticity</strong><p>Users, systems, and data are genuinely what they claim to be.</p></div>
-              <div><strong>Assurance</strong><p>Confidence that controls work as intended and meet their requirements.</p></div>
-              <div><strong>Anonymity</strong><p>A subject can act without revealing or being linked to an identity.</p></div>
-            </div>
-          </section>
+        <article class="note active" id="overview" data-label="FOUNDATIONS / EXAM OVERVIEW">
+          <div class="note-intro"><span class="tag">START HERE</span><p class="section-label">CYBERSECURITY FUNDAMENTALS</p><h2>Course <em>Overview</em></h2><p class="lede">A focused map for reviewing the foundational ideas before the exam.</p></div>
+          <section class="note-section"><div class="section-heading"><span>01</span><h3>Exam essentials</h3></div><div class="fact-row"><div><strong>DTU 02270 / 02339</strong><span>Cybersecurity Fundamentals</span></div><div><strong>2 hours</strong><span>Multiple choice examination</span></div><div><strong>No aids</strong><span>No notes, books, or internet</span></div></div></section>
+          <section class="note-section"><div class="section-heading"><span>02</span><h3>Foundational mindset</h3></div><blockquote>“No chain is stronger than its weakest link.”</blockquote><p>Cybersecurity is a system property. Examine every technical, physical, and human layer that can affect the safety of a system.</p><div class="study-card"><p class="section-label">QUICK RECALL</p><h4>Is security absolute?</h4><button class="reveal-answer">Reveal answer</button><p class="answer" hidden>No. Security is relative to the desired properties and to an adversary’s specific capabilities. File permissions, for example, do not help if an attacker can boot from an external drive.</p></div></section>
         </article>
 
-        <article class="note" id="attacks" data-label="LECTURE 1 / THREATS" hidden>
-          <div class="note-intro">
-            <span class="tag">LECTURE 01</span>
-            <p class="section-label">THREAT LANDSCAPE</p>
-            <h2>Attacks &amp;<br /><em>Adversaries</em></h2>
-            <p class="lede">Understanding who may act against a system, and how visible their actions are, is central to threat modeling.</p>
-          </div>
-          <section class="note-section">
-            <div class="section-heading"><span>01</span><h3>Network attacks</h3></div>
-            <div class="comparison">
-              <article><p class="comparison-label">PASSIVE</p><h4>Observe without changing</h4><p>An attacker monitors communication to learn from it. Passive attacks are difficult to detect because no data is altered.</p><span>Examples: eavesdropping, traffic analysis</span></article>
-              <article><p class="comparison-label accent">ACTIVE</p><h4>Alter or disrupt</h4><p>An attacker modifies messages, injects data, impersonates a party, or prevents normal service.</p><span>Examples: replay, masquerade, denial of service</span></article>
-            </div>
-          </section>
-          <section class="note-section">
-            <div class="section-heading"><span>02</span><h3>Threat actors</h3></div>
-            <div class="actor-grid">
-              <article><h4>Insiders</h4><p>People with legitimate access who misuse it deliberately or accidentally.</p></article>
-              <article><h4>Crackers / Hackers</h4><p>Technically capable actors who seek to exploit weaknesses for a range of motives.</p></article>
-              <article><h4>Script-Kiddies</h4><p>Inexperienced attackers who rely on tools or scripts made by others.</p></article>
-              <article><h4>Spies &amp; Criminals</h4><p>Organized actors pursuing intelligence, financial gain, or strategic advantage.</p></article>
-            </div>
-          </section>
+        <article class="note" id="goals" data-label="LECTURE 1 / SECURITY GOALS" hidden>
+          <div class="note-intro"><span class="tag">LECTURE 01</span><p class="section-label">CORE PRINCIPLES</p><h2>Security <em>Goals</em></h2><p class="lede">NIST describes security as protecting system resources to preserve integrity, availability, and confidentiality.</p></div>
+          <section class="note-section"><div class="section-heading"><span>01</span><h3>The CIA triad</h3></div><div class="concept-grid">
+            <article class="concept-card"><span class="card-index">C</span><h4>Confidentiality</h4><p>Prevent unauthorized observation of information or resources—keeping secrets secret.</p><span class="example">Encryption · access control · need-to-know</span></article>
+            <article class="concept-card"><span class="card-index">I</span><h4>Integrity</h4><p>Prevent unauthorized modification. Data integrity concerns contents; origin integrity concerns the source.</p><span class="example">Prevention or detection and correction</span></article>
+            <article class="concept-card"><span class="card-index">A</span><h4>Availability</h4><p>Ensure authorized users can access resources when needed. DoS and physical failures challenge it.</p><span class="example">Redundancy · backups · resilience</span></article>
+          </div><p class="exam-tip"><strong>Exam tip:</strong> In commercial systems, integrity is often more critical than confidentiality.</p></section>
+          <section class="note-section"><div class="section-heading"><span>02</span><h3>Additional goals</h3></div><div class="definition-list">
+            <details><summary>Accountability</summary><p>Actions can be traced to one entity, making that entity responsible. It relates to non-repudiation and conflicts with anonymity.</p></details>
+            <details><summary>Authenticity</summary><p>Statements, policies, permissions, and sources are genuine and trusted. Digital signatures provide authenticity and non-repudiation.</p></details>
+            <details><summary>Assurance</summary><p>The degree of confidence that controls work as intended. Policies state expected behavior; permissions allow actions; protections enforce them.</p></details>
+            <details><summary>Anonymity</summary><p>Records or transactions cannot be tied to a person. Proxies/Tor, pseudonyms, aggregation, and mixing can help.</p></details>
+          </div></section>
+        </article>
+
+        <article class="note" id="threats" data-label="LECTURE 1 / THREATS AND RISK" hidden>
+          <div class="note-intro"><span class="tag">LECTURE 01</span><p class="section-label">THREAT LANDSCAPE</p><h2>Threats &amp; <em>Risk</em></h2><p class="lede">Know what can go wrong, who might cause it, and how defenses reduce harm.</p></div>
+          <section class="note-section"><div class="section-heading"><span>01</span><h3>Attack model</h3></div><p class="formula">Threat <span>→</span> Vulnerability <span>→</span> Opportunity <span>→</span> Attacker exploit</p><div class="mini-grid"><article><h4>Disclosure</h4><p>Unauthorized access to information.</p></article><article><h4>Deception</h4><p>Acceptance of false data.</p></article><article><h4>Disruption</h4><p>Interrupted correct operation.</p></article><article><h4>Usurpation</h4><p>Unauthorized control of functions.</p></article></div></section>
+          <section class="note-section"><div class="section-heading"><span>02</span><h3>Countermeasures &amp; risk</h3></div><div class="definition-list"><details><summary>Prevention</summary><p>Remove vulnerabilities entirely.</p></details><details><summary>Deterrence &amp; deflection</summary><p>Make attacks difficult/costly or make other targets look more attractive.</p></details><details><summary>Detection</summary><p>Identify attacks during or after the event; enables forensics.</p></details><details><summary>Recovery</summary><p>Restore the system to a safe operational state.</p></details></div><p>The risk cycle is: <strong>identify</strong> risks and causes, <strong>assess</strong> likelihood and impact, <strong>treat</strong> or accept risk, then <strong>monitor and review</strong> continuously.</p></section>
+          <section class="note-section"><div class="section-heading"><span>03</span><h3>Attacks &amp; threat actors</h3></div><div class="comparison"><article><p class="comparison-label">PASSIVE</p><h4>Observe</h4><p>Monitoring traffic without altering or injecting packets.</p><span>Eavesdropping · traffic analysis</span></article><article><p class="comparison-label accent">ACTIVE</p><h4>Alter or interfere</h4><p>Modify, delete, fabricate, or disrupt traffic and systems.</p><span>Modification · deletion · fabrication</span></article></div><div class="actor-grid"><article><h4>Insiders</h4><p>Internal knowledge and standard privileges; motives include accident or disgruntlement.</p></article><article><h4>Crackers / Hackers</h4><p>High technical skill and custom exploits; driven by curiosity, fame, or money.</p></article><article><h4>Script-Kiddies</h4><p>Low skill; use pre-built tools against known unpatched vulnerabilities.</p></article><article><h4>Spies &amp; Criminals</h4><p>High capability and resources; seek money or IP through infiltration or coercion.</p></article><article><h4>Hacktivists &amp; Terrorists</h4><p>Use targeted disruptive tools for ideology, social change, or chaos.</p></article></div></section>
+        </article>
+
+        <article class="note" id="engineering" data-label="LECTURE 1 / SECURITY ENGINEERING" hidden>
+          <div class="note-intro"><span class="tag">SYSTEM DESIGN</span><p class="section-label">ENGINEERING PRINCIPLES</p><h2>Defense in <em>Depth</em></h2><p class="lede">Security works best as a deliberate, usable system of overlapping defenses—not a single control.</p></div>
+          <section class="note-section"><div class="section-heading"><span>01</span><h3>Layered defense</h3></div><p>In the Swiss Cheese model, an exploit succeeds only if holes—vulnerabilities and latent conditions—align across every defense layer.</p><div class="layers" aria-label="Defense in depth layers"><span>Policy</span><span>Design</span><span>Implementation</span><span>Operation</span><span>People</span></div></section>
+          <section class="note-section"><div class="section-heading"><span>02</span><h3>Principles to distinguish</h3></div><div class="definition-list"><details><summary>Policy vs. mechanism</summary><p>A policy says what is allowed; a mechanism is the tool, method, or process that enforces it.</p></details><details><summary>Coverage</summary><p>Secure prevents nonsecure states. Precise permits every secure state without over-restricting. Broad permits some nonsecure states.</p></details><details><summary>Formal methods</summary><p>Mathematical modeling and logic specify systems and prove security properties, using methods such as model checking and static analysis.</p></details><details><summary>Usability &amp; people</summary><p>Complex controls invite bypasses. Social engineering, such as phishing, targets human rather than code vulnerabilities.</p></details></div></section>
+          <section class="note-section"><div class="section-heading"><span>03</span><h3>Security life cycle</h3></div><p class="formula">Threats <span>↔</span> Policy <span>↔</span> Specification <span>↔</span> Design <span>↔</span> Implementation <span>↔</span> Operation &amp; maintenance</p></section>
         </article>
 
         <article class="note" id="diffie-hellman" data-label="CRYPTOGRAPHY / KEY EXCHANGE" hidden>
-          <div class="note-intro">
-            <span class="tag">CRYPTOGRAPHY</span>
-            <p class="section-label">ASYMMETRIC FOUNDATIONS</p>
-            <h2>Diffie-Hellman<br /><em>Key Exchange</em></h2>
-            <p class="lede">A shared secret can be established over a public channel—without transmitting the secret itself.</p>
-          </div>
-          <section class="note-section">
-            <div class="section-heading"><span>01</span><h3>Public values, private choices</h3></div>
-            <p>Alice and Bob publicly agree on a large prime <code>p</code> and generator <code>g</code>. These values are not secret. Each then picks a private exponent.</p>
-            <div class="flow" aria-label="Diffie-Hellman exchange flow">
-              <div><strong>Public</strong><code>p, g</code></div><i aria-hidden="true">→</i>
-              <div><strong>Alice keeps</strong><code>a</code></div><i aria-hidden="true">→</i>
-              <div><strong>Alice sends</strong><code>A = g<sup>a</sup> mod p</code></div>
-              <div><strong>Bob keeps</strong><code>b</code></div><i aria-hidden="true">→</i>
-              <div><strong>Bob sends</strong><code>B = g<sup>b</sup> mod p</code></div>
-            </div>
-          </section>
-          <section class="note-section">
-            <div class="section-heading"><span>02</span><h3>Arriving at the same secret</h3></div>
-            <div class="key-result">
-              <div><p>Alice computes</p><code>K = B<sup>a</sup> mod p</code></div>
-              <span aria-hidden="true">=</span>
-              <div><p>Bob computes</p><code>K = A<sup>b</sup> mod p</code></div>
-              <span aria-hidden="true">=</span>
-              <div class="shared"><p>Shared secret</p><code>g<sup>ab</sup> mod p</code></div>
-            </div>
-          </section>
-          <aside class="callout"><span aria-hidden="true">!</span><p><strong>Security note.</strong> Recovering <code>a</code> from <code>A = g<sup>a</sup> mod p</code> should be infeasible because of the discrete-log problem. Basic Diffie-Hellman does not authenticate either party, however, so it is vulnerable to a man-in-the-middle attack unless paired with authentication.</p></aside>
+          <div class="note-intro"><span class="tag">CRYPTOGRAPHY</span><p class="section-label">ASYMMETRIC FOUNDATIONS</p><h2>Diffie-Hellman <em>Exchange</em></h2><p class="lede">Two parties establish a shared secret over an insecure public channel without sending the secret itself.</p></div>
+          <section class="note-section"><div class="section-heading"><span>01</span><h3>Exchange steps</h3></div><ol class="steps"><li><strong>Public setup:</strong> agree on a large prime <code>p</code> (modulus) and generator <code>g</code> (primitive root modulo <code>p</code>).</li><li><strong>Private choices:</strong> Alice chooses <code>a</code>; Bob chooses <code>b</code>.</li><li><strong>Public exchange:</strong> Alice sends <code>A = g<sup>a</sup> mod p</code>; Bob sends <code>B = g<sup>b</sup> mod p</code>.</li><li><strong>Shared secret:</strong> Alice computes <code>K = B<sup>a</sup> mod p</code>; Bob computes <code>K = A<sup>b</sup> mod p</code>.</li></ol><p class="formula">K = (g<sup>b</sup>)<sup>a</sup> mod p = g<sup>ba</sup> mod p <span>=</span> g<sup>ab</sup> mod p = (g<sup>a</sup>)<sup>b</sup> mod p</p></section>
+          <section class="note-section"><div class="section-heading"><span>02</span><h3>Worked example</h3></div><p>With <code>p = 23</code>, <code>g = 5</code>, Alice’s <code>a = 4</code>, and Bob’s <code>b = 3</code>: <code>A = 5<sup>4</sup> mod 23 = 4</code> and <code>B = 5<sup>3</sup> mod 23 = 10</code>.</p><div class="study-card quiz"><p class="section-label">CHECK YOURSELF</p><h4>What shared secret do both compute?</h4><div><button class="quiz-answer" data-correct="18">18</button><button class="quiz-answer" data-correct="false">4</button><button class="quiz-answer" data-correct="false">23</button></div><p class="quiz-feedback" aria-live="polite"></p></div></section>
+          <aside class="callout"><span aria-hidden="true">!</span><p><strong>Key takeaways.</strong> The discrete logarithm problem makes recovering <code>a</code> or <code>b</code> from public values infeasible at secure sizes. Diffie-Hellman is a key-exchange algorithm, not encryption; use the shared key with a symmetric cipher such as AES. Plain DH has no authentication, so a MitM can replace public values—pair it with certificates or digital signatures.</p></aside>
         </article>
       </main>
     </div>

@@ -1,7 +1,7 @@
 const root = document.documentElement;
 const themeToggle = document.querySelector("#theme-toggle");
 const menuToggle = document.querySelector("#menu-toggle");
-const sidebar = document.querySelector(".sidebar");
+const sidebar = document.querySelector("#sidebar");
 const search = document.querySelector("#topic-search");
 const topicLinks = [...document.querySelectorAll(".topic-link")];
 const notes = [...document.querySelectorAll(".note")];
@@ -19,7 +19,6 @@ function setTheme(theme) {
 }
 
 setTheme(localStorage.getItem("cyber-notes-theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
-
 themeToggle.addEventListener("click", () => setTheme(root.dataset.theme === "light" ? "dark" : "light"));
 
 function selectTopic(id) {
@@ -40,7 +39,6 @@ function selectTopic(id) {
 }
 
 topicLinks.forEach((link) => link.addEventListener("click", () => selectTopic(link.dataset.topic)));
-
 search.addEventListener("input", () => {
   const query = search.value.trim().toLowerCase();
   let visible = 0;
@@ -53,11 +51,30 @@ search.addEventListener("input", () => {
   topicCount.textContent = String(visible).padStart(2, "0");
 });
 
+document.querySelectorAll(".reveal-answer").forEach((button) => {
+  button.addEventListener("click", () => {
+    const answer = button.parentElement.querySelector(".answer");
+    const hidden = answer.hidden;
+    answer.hidden = !hidden;
+    button.textContent = hidden ? "Hide answer" : "Reveal answer";
+  });
+});
+
+document.querySelectorAll(".quiz-answer").forEach((button) => {
+  button.addEventListener("click", () => {
+    const correct = button.dataset.correct === "18";
+    const feedback = button.closest(".quiz").querySelector(".quiz-feedback");
+    button.dataset.state = correct ? "correct" : "incorrect";
+    feedback.textContent = correct
+      ? "Correct. Alice computes 10⁴ mod 23 = 18; Bob computes 4³ mod 23 = 18."
+      : "Try again: use Alice's received B = 10 with her private exponent a = 4.";
+  });
+});
+
 menuToggle.addEventListener("click", () => {
   const open = sidebar.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(open));
 });
-
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
